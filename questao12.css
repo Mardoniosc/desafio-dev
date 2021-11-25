@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+}
+.quadrado {
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border-color: #000; /* cores: topo, direita, inferior, esquerda */
+}
+.quadrado1 {
+  margin-right: 30px;
+  width: 100vh;
+  height: 100vh;
+  background-color: blue;
+}
+.quadrado2 {
+  margin-bottom: 25px;
+  width: 50vh;
+  height: 48vh;
+  background-image: linear-gradient(to right, rgb(29, 253, 96) , rgb(10, 0, 95));
+}
+.quadrado3 {
+  margin-top: 25px;
+  width: 50vh;
+  height: 48vh;
+  background-image: url("questao_11_Blockbuster.png");
+}
+
+p {
+  word-wrap: break-word;
+  
+}
