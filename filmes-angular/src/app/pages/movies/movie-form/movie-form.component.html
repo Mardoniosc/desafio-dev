@@ -56,6 +56,13 @@
     </div>
   </div>
 
+  <div class="alert alert-danger mt-4" *ngIf="serverErrorMessages.length > 0">
+    <strong>Erro no Servidor</strong>
+    <ul>
+      <li *ngFor="let err of serverErrorMessages">{{ err }}</li>
+    </ul>
+  </div>
+
   <button [disabled]="submittingForm || movieForm.invalid"  type="submit" class="btn btn-primary btn-lg mt-3 float-end">
     Salvar
   </button>
