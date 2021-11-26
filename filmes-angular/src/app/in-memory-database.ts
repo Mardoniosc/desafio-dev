@@ -1,8 +1,9 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Movie } from './pages/movies/shared/models/movies.model';
 
 export class InMemoryDatabase implements InMemoryDbService {
   createDb() {
-    const filmes = [
+    const movies: Movie[] = [
       {
         id: 1002,
         nome: 'Avengers: Infinity War',
@@ -37,6 +38,6 @@ export class InMemoryDatabase implements InMemoryDbService {
           'https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI@._V1_.jpg',
       },
     ];
-    return { filmes };
+    return { movies };
   }
 }
