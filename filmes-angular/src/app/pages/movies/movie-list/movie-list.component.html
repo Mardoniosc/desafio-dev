@@ -27,7 +27,7 @@
         <p><strong>ano:</strong> {{ movie.ano }}</p>
         <p><strong>diretor:</strong> {{ movie.diretor }}</p>
         <div class="card-footer" style="display: flex; justify-content: space-between;">
-          <a href="#" class="btn btn-success">Editar</a>
+          <a [routerLink]="[movie.id, 'edit']" class="btn btn-success">Editar</a>
           <a (click)="deleteMovie(movie)" class="btn btn-danger">Excluir</a>
 
         </div>

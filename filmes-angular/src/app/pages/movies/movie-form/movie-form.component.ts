@@ -15,10 +15,9 @@ import { MovieService } from '../shared/services/movie.service';
 @Component({
   selector: 'app-movie-form',
   templateUrl: './movie-form.component.html',
-  styleUrls: ['./movie-form.component.scss']
+  styleUrls: ['./movie-form.component.scss'],
 })
 export class MovieFormComponent implements OnInit {
-
   currentAction: string = '';
   movieForm!: FormGroup;
   pageTitle: string = '';
@@ -43,9 +42,65 @@ export class MovieFormComponent implements OnInit {
     this.setPageTitle();
   }
 
-   // PRIVATE METHODS
+  submitForm() {
+    this.submittingForm = true;
 
-   private setCurrentAction() {
+    if (this.currentAction === 'new') {
+      this.createMovie();
+    } else {
+      this.updateMovie();
+    }
+  }
+
+  private createMovie() {
+    const movie: Movie = Object.assign(
+      new Movie(),
+      this.movieForm.value
+    );
+
+    this.movieService.create(movie).subscribe(
+      (movie) => this.actionForSuccess(movie),
+      (err) => this.actionForError(err)
+    );
+  }
+
+  private updateMovie() {
+    const movie: Movie = Object.assign(
+      new Movie(),
+      this.movieForm.value
+    );
+
+    this.movieService.update(movie).subscribe(
+      (movie) => this.actionForSuccess(movie),
+      (err) => this.actionForError(err)
+    );
+  }
+
+  private actionForSuccess(movie: Movie) {
+    toastr.success('Solicitação processada com sucesso!');
+
+    this.router
+      .navigateByUrl('movies', { skipLocationChange: true })
+      .then(() => this.router.navigate(['movies', movie.id, 'edit']));
+  }
+
+  private actionForError(err: any) {
+    toastr.error('Ocorreu um erro ao processar a sua solicitação!');
+
+    this.submittingForm = false;
+
+    if (err.status === 422) {
+      this.serverErrorMessages = JSON.parse(err._body).erros;
+    } else {
+      this.serverErrorMessages = [
+        'Falha na comunicação com o servidor. Favor tente mais tarde!',
+      ];
+    }
+  }
+
+  // PRIVATE METHODS
+
+  private setCurrentAction() {
     if (this.route.snapshot.url[0].path === 'new') {
       this.currentAction = 'new';
     } else {
@@ -56,8 +111,12 @@ export class MovieFormComponent implements OnInit {
   private buildMovieForm() {
     this.movieForm = this.formBuilder.group({
       id: [null],
-      name: [null, [Validators.required, Validators.minLength(2)]],
-      description: [null],
+      nome: [null, [Validators.required, Validators.minLength(2)]],
+      descricao: [null, [Validators.required, Validators.minLength(10)]],
+      ano: [null, [Validators.required, Validators.minLength(4)]],
+      diretor: [null, [Validators.required, Validators.minLength(4)]],
+      genero: [null, [Validators.required, Validators.minLength(4)]],
+      poster: [null, [Validators.required, Validators.minLength(4)]],
     });
   }
 
@@ -72,7 +131,7 @@ export class MovieFormComponent implements OnInit {
         .subscribe(
           (data) => {
             this.movie = data;
-            if(this.movieForm) {
+            if (this.movieForm) {
               this.movieForm.patchValue(this.movie);
             }
           },
@@ -85,11 +144,10 @@ export class MovieFormComponent implements OnInit {
     if (this.currentAction === 'new') {
       this.pageTitle = 'Cadastro de Novo Filme';
     } else {
-      if(this.movie) {
+      if (this.movie) {
         const movieName = this.movie.nome || '';
         this.pageTitle = 'Editando filme: ' + movieName;
       }
     }
   }
-
 }
