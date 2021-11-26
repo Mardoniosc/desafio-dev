@@ -16,111 +16,19 @@
 
 
 <div class="row mb-5">
-  <div class="col-md-4 mb-4">
+  <div class="col-md-4 mb-4" *ngFor="let movie of movies">
     <div class="card" style="width: 18rem;">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/pt/thumb/9/90/Avengers_Infinity_War.jpg/250px-Avengers_Infinity_War.jpg"
-        class="card-img-top" alt="...">
+      <img src="{{movie.poster}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Avengers: Infinity War</h5>
-        <p class="card-text">Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful
-          enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the
-          artifacts to inflict his twisted will on reality.</p>
+        <h5 class="card-title">{{ movie.nome }}</h5>
+        <p class="card-text">{{ movie.descricao }}</p>
 
-          <p><strong>genero:</strong> Sci-fi/Action</p>
-          <p><strong>ano:</strong> 2018,</p>
-          <p><strong>diretor:</strong> Anthony Russo, Joe Russo,</p>
+        <p><strong>genero:</strong> {{ movie.genero }}</p>
+        <p><strong>ano:</strong> {{ movie.ano }}</p>
+        <p><strong>diretor:</strong> {{ movie.diretor }}</p>
         <div class="card-footer" style="display: flex; justify-content: space-between;">
           <a href="#" class="btn btn-success">Editar</a>
-          <a href="#" class="btn btn-danger">Excluir</a>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-4">
-    <div class="card" style="width: 18rem;">
-      <img
-        src="https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/3/35/Official_FFH_US_Poster.jpg/revision/latest?cb=20190522171521"
-        class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Avengers: Infinity War</h5>
-        <p class="card-text">Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful
-          enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the
-          artifacts to inflict his twisted will on reality.</p>
-
-          <p><strong>genero:</strong> Sci-fi/Action</p>
-          <p><strong>ano:</strong> 2018,</p>
-          <p><strong>diretor:</strong> Anthony Russo, Joe Russo,</p>
-        <div class="card-footer" style="display: flex; justify-content: space-between;">
-          <a href="#" class="btn btn-success">Editar</a>
-          <a href="#" class="btn btn-danger">Excluir</a>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-4">
-    <div class="card" style="width: 18rem;">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/pt/thumb/9/90/Avengers_Infinity_War.jpg/250px-Avengers_Infinity_War.jpg"
-        class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Avengers: Infinity War</h5>
-        <p class="card-text">Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful
-          enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the
-          artifacts to inflict his twisted will on reality.</p>
-
-          <p><strong>genero:</strong> Sci-fi/Action</p>
-          <p><strong>ano:</strong> 2018,</p>
-          <p><strong>diretor:</strong> Anthony Russo, Joe Russo,</p>
-        <div class="card-footer" style="display: flex; justify-content: space-between;">
-          <a href="#" class="btn btn-success">Editar</a>
-          <a href="#" class="btn btn-danger">Excluir</a>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-4">
-    <div class="card" style="width: 18rem;">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/pt/thumb/9/90/Avengers_Infinity_War.jpg/250px-Avengers_Infinity_War.jpg"
-        class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Avengers: Infinity War</h5>
-        <p class="card-text">Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful
-          enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the
-          artifacts to inflict his twisted will on reality.</p>
-
-          <p><strong>genero:</strong> Sci-fi/Action</p>
-          <p><strong>ano:</strong> 2018,</p>
-          <p><strong>diretor:</strong> Anthony Russo, Joe Russo,</p>
-        <div class="card-footer" style="display: flex; justify-content: space-between;">
-          <a href="#" class="btn btn-success">Editar</a>
-          <a href="#" class="btn btn-danger">Excluir</a>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-4">
-    <div class="card" style="width: 18rem;">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/pt/thumb/9/90/Avengers_Infinity_War.jpg/250px-Avengers_Infinity_War.jpg"
-        class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Avengers: Infinity War</h5>
-        <p class="card-text">Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful
-          enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the
-          artifacts to inflict his twisted will on reality.</p>
-
-          <p><strong>genero:</strong> Sci-fi/Action</p>
-          <p><strong>ano:</strong> 2018,</p>
-          <p><strong>diretor:</strong> Anthony Russo, Joe Russo,</p>
-        <div class="card-footer" style="display: flex; justify-content: space-between;">
-          <a href="#" class="btn btn-success">Editar</a>
-          <a href="#" class="btn btn-danger">Excluir</a>
+          <a (click)="deleteMovie(movie)" class="btn btn-danger">Excluir</a>
 
         </div>
       </div>

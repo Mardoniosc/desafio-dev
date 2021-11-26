@@ -55,7 +55,7 @@ export class MovieService {
   }
 
   private jsonDataToMovie(jsonData: any[]): Movie {
-    return jsonData as Movie;
+    return jsonData as any as Movie;
   }
 
   private handleError(error: any): Observable<any> {
