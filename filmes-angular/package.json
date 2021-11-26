@@ -18,6 +18,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@types/toastr": "^2.1.39",
     "angular-imask": "^6.2.2",
     "angular-in-memory-web-api": "^0.11.0",
     "bootstrap": "^5.1.3",

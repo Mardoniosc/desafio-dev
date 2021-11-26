@@ -24,12 +24,14 @@ export class MovieListComponent implements OnInit {
     const mustDelete = confirm('Deseja realmente excluir este item?');
 
     if (mustDelete) {
-      this.movieService.delete(movie.id).subscribe(
-        (data) => {
-          this.movies = this.movies.filter((x) => x != movie);
-        },
-        (err) => alert('Erro ao tentar excluir!!')
-      );
+      if(movie.id) {
+        this.movieService.delete(movie.id).subscribe(
+          (data) => {
+            this.movies = this.movies.filter((x) => x != movie);
+          },
+          (err) => alert('Erro ao tentar excluir!!')
+        );
+      }
     }
   }
 
